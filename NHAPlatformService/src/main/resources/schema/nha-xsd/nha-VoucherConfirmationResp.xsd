@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:nha="https://erupi.nha.gov.in/voucher/confirmation/schema/2.0"
+	targetNamespace="https://erupi.nha.gov.in/voucher/confirmation/schema/2.0">
+
+	<xs:complexType name="voucherConfirmationReq">
+		<xs:sequence maxOccurs="1" minOccurs="0">
+			<xs:element name="voucherConfReq" type="nha:voucherConfReq"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="ver" type="xs:string" use="required"/>
+		<xs:attribute name="ts" type="xs:string" use="required"/>
+		<xs:attribute name="erupiCode" type="xs:string" use="required"/>
+		<xs:attribute name="reqTxn" type="xs:string" use="required"/>
+		<xs:attribute name="state" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="voucherConfReq">
+		<xs:attribute name="voucherTxn" type="xs:string" use="required" />
+		<xs:attribute name="orgVoucherTxn" type="xs:string" />
+		<xs:attribute name="note" type="xs:string" use="required" />
+		<xs:attribute name="reqTxn" type="xs:string" use="required" />
+		<xs:attribute name="status" type="xs:string" use="required" />
+		<xs:attribute name="errorCode" type="xs:string" use="required" />
+		<xs:attribute name="errorDesc" type="xs:string"></xs:attribute>
+		<xs:attribute name="type" type="xs:string" use="required" />
+		<xs:attribute name="approvalNum" type="xs:string" />
+		<xs:attribute name="umn" type="xs:string"  />
+		<xs:attribute name="uuid" type="xs:string"  />
+		<xs:attribute name="regName" type="xs:string"  />
+		<xs:attribute name="redeemVoucherAmount" type="xs:string"  />
+		<xs:attribute name="qrLink" type="xs:string"  />
+		<xs:attribute name="redeemType" type="xs:string"  />
+		<xs:attribute name="redeemSeq" type="xs:string"  />
+	</xs:complexType>
+
+	<xs:complexType name="voucherConfirmationReqAck">
+		<xs:sequence maxOccurs="1" minOccurs="0">
+			<xs:element name="ConfResp" type="nha:ConfResp"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="ver" type="xs:string" />
+		<xs:attribute name="ts" type="xs:string" />
+		<xs:attribute name="erupiCode" type="xs:string" />
+		<xs:attribute name="reqTxn" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="voucherConfirmationResp">
+		<xs:sequence maxOccurs="1" minOccurs="0">
+			<xs:element name="ConfResp" type="nha:ConfResp"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="ver" type="xs:string" />
+		<xs:attribute name="ts" type="xs:string" />
+		<xs:attribute name="erupiCode" type="xs:string" />
+		<xs:attribute name="reqTxn" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="voucherConfirmationRespAck">
+		<xs:sequence maxOccurs="1" minOccurs="0">
+			<xs:element name="ConfResp" type="nha:ConfResp"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="ver" type="xs:string" />
+		<xs:attribute name="ts" type="xs:string" />
+		<xs:attribute name="erupiCode" type="xs:string" />
+		<xs:attribute name="reqTxn" type="xs:string" />
+	</xs:complexType>
+
+
+	<xs:complexType name="ConfResp">
+		<xs:attribute name="voucherTxn" type="xs:string"></xs:attribute>
+		<xs:attribute name="orgVoucherTxn" type="xs:string"></xs:attribute>
+		<xs:attribute name="note" type="xs:string"></xs:attribute>
+		<xs:attribute name="type" type="xs:string"></xs:attribute>
+		<xs:attribute name="status" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="errorCode" type="xs:string"></xs:attribute>
+		<xs:attribute name="errorDesc" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:nha="https://erupi.nha.gov.in/voucher/request/schema/2.0"
+	targetNamespace="https://erupi.nha.gov.in/voucher/request/schema/2.0"
+	 elementFormDefault="unqualified"
+ attributeFormDefault="unqualified" >
+
+	<xs:complexType name="voucherReq">
+		<xs:sequence>
+			<xs:element name="voucherData" type="nha:voucherData" minOccurs="0" maxOccurs="1"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="ver" type="xs:string" use="required"/>
+		<xs:attribute name="ts" type="xs:string" use="required"/>
+		<xs:attribute name="erupiCode" type="xs:string" use="required"/>
+		<xs:attribute name="reqTxn" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="voucherData">
+		<xs:simpleContent>
+			<xs:extension base="xs:base64Binary">
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="voucher">
+		<xs:attribute name="txn_type" type="xs:string" use="required" />
+		<xs:attribute name="txn_purpose" type="xs:string" use="required" />
+		<xs:attribute name="mandate_name" type="xs:string" use="required" />
+		<xs:attribute name="validity_start" type="xs:string" use="required" />
+		<xs:attribute name="validity_end" type="xs:string" use="required" />
+		<xs:attribute name="amount" type="xs:string" use="required" />
+		<xs:attribute name="payer_addr" type="xs:string" use="required" />
+		<xs:attribute name="payer_bank_code" type="xs:string" use="required" />
+		<xs:attribute name="mid" type="xs:string" use="required" />
+		<xs:attribute name="sid" type="xs:string"  />
+		<xs:attribute name="tid" type="xs:string" />
+		<xs:attribute name="payer_name" type="xs:string" use="required"/>
+		<xs:attribute name="ifsc" type="xs:string" use="required" />
+		<xs:attribute name="acnum" type="xs:string" use="required" />
+		<xs:attribute name="actype" type="xs:string" use="required" />
+		<xs:attribute name="payee_mobile" type="xs:string" use="required" />
+		<xs:attribute name="payee_name" type="xs:string" use="required" />
+		<xs:attribute name="payee_code" type="xs:string" use="required" />
+		<xs:attribute name="payee_brand" type="xs:string" use="required"/>
+		<xs:attribute name="org_txn_id" type="xs:string" />
+		<xs:attribute name="voucher_redemption_type" type="xs:string" use="required"/>
+		<xs:attribute name="state" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="voucherReqAck">
+		<xs:sequence maxOccurs="1" minOccurs="0">
+			<xs:element name="Resp" type="nha:Resp"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="ver" type="xs:string" />
+		<xs:attribute name="ts" type="xs:string" />
+		<xs:attribute name="erupiCode" type="xs:string" />
+		<xs:attribute name="reqTxn" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="voucherRes">
+		<xs:sequence maxOccurs="1" minOccurs="0">
+			<xs:element name="Resp" type="nha:Resp"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="ver" type="xs:string" />
+		<xs:attribute name="ts" type="xs:string" />
+		<xs:attribute name="erupiCode" type="xs:string" />
+		<xs:attribute name="reqTxn" type="xs:string" />
+		<xs:attribute name="state" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="voucherResAck">
+		<xs:sequence maxOccurs="1" minOccurs="0">
+			<xs:element name="Resp" type="nha:Resp"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="ver" type="xs:string" />
+		<xs:attribute name="ts" type="xs:string" />
+		<xs:attribute name="erupiCode" type="xs:string" />
+		<xs:attribute name="reqTxn" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="Resp">
+		<xs:attribute name="voucherTxn" type="xs:string"></xs:attribute>
+		<xs:attribute name="status" type="xs:string"></xs:attribute>
+		<xs:attribute name="errorCode" type="xs:string"></xs:attribute>
+		<xs:attribute name="errorDesc" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+</xs:schema>

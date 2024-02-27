@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<castor:binding xmlns:castor="http://www.castor.org/SourceGenerator/Binding"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.castor.org/SourceGenerator/Binding binding.xsd">
+
+	<!-- start: Common Business entities -->
+	<package>
+		<name>com.gov.nha.bis.upi.ack</name>
+		<namespace>
+			http://npci.org/upi/schema/
+		</namespace>
+	</package>
+	
+	<package>
+		<name>com.gov.nha.bis.erupi.voucher.req</name>
+		<namespace>
+			https://erupi.nha.gov.in/voucher/request/schema/2.0
+		</namespace>
+	</package>
+	
+	<package>
+		<name>com.gov.nha.bis.erupi.voucher.confirm</name>
+		<namespace>
+			https://erupi.nha.gov.in/voucher/confirmation/schema/2.0
+		</namespace>
+	</package>
+	
+</castor:binding>
